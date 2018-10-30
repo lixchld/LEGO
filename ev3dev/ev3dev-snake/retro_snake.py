@@ -131,6 +131,7 @@ while True:
 			createBuger()
 			# draw hanburger
 			display.draw.ellipse((hx,hy,hx+step,hy+step))
+			# clear the score on screen so that new score could be shown properly
 			display.draw.text((0,2), 'Score {0}'.format(length), fill='white')
 
 			length += 1
