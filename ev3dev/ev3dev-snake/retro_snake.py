@@ -5,6 +5,7 @@ from time import sleep
 from ev3dev2.button import Button
 from ev3dev2.sound import Sound
 from ev3dev2.display import Display
+from PIL import Image
 import array
 import random
 import os
@@ -147,6 +148,9 @@ while True:
 		dead = isDead(Sx, Sy)
 		if dead:
 			sound.beep()
+			logo = Image.open('/home/robot/LEGO/pics/Bomb.bmp')
+			display.image.paste(logo, (0,0))
+			display.update()
 			sleep(3)
 			exit()
 	
