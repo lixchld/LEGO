@@ -102,14 +102,13 @@ btn.on_up = up
 btn.on_down = down
 createBuger()
 display.clear()
-lcd=Display()
 
 # draw hanburger
 display.draw.ellipse((hx,hy,hx+step,hy+step))
 
 while True:
 	# draw score on the screen
-	lcd.draw.text((10,20), 'Score {0}'.format(length), fill='black')
+	display.draw.text((0,2), 'Score {0}'.format(length), fill='black')
 
 	# process the button event
 	btn.process()
@@ -132,6 +131,8 @@ while True:
 			createBuger()
 			# draw hanburger
 			display.draw.ellipse((hx,hy,hx+step,hy+step))
+			display.draw.text((0,2), 'Score {0}'.format(length), fill='white')
+
 			length += 1
 		else:
 			tmpx=Sx[0]
