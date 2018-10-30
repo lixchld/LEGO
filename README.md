@@ -1,2 +1,4 @@
 # LEGO
-LEGO Project
+Welcome to LEGO's world!
+
+
