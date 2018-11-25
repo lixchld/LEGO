@@ -1,4 +1,5 @@
 # Stair Climber
+![alt text](lego_stair_climber.png)
 
 This program is implemented base on ev3dev-stretch.
 
