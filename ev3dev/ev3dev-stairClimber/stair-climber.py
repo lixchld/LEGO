@@ -39,7 +39,7 @@ lcd = Display()
 snd = Sound()
 
 # define the steps to go, initial value is 0
-steps = 0
+steps = 1
 
 # Declare function for one step
 def oneStep():
@@ -62,12 +62,12 @@ def oneStep():
 	gy.wait_until_angle_changed_by(7.5)
 	log.info('hit the stair')
 
-	# slow donw the speed of drive wheel
+	# slow down the speed of drive wheel
 	# in order to save energy meanwhile
 	# front wheel could climb up to the stair
 	# keep the car stay steady on the flor
 	mm_move.on(-8)
-	lm_move.on(-30)
+	lm_move.on(-15)
 
 	# reset the lift motor to star record the degree to rotate
 	lm_lifter.reset()
@@ -86,15 +86,17 @@ def oneStep():
 	lm_lifter.stop()
 	# move towards the next level of stair
 	log.info('move towards the next level of stair')
-	lm_move.on(-60)
-	mm_move.on(-100)
-	sleep(1.3)
-	
-	# keep a force on the drive wheel while lifting rear part of the car
 	lm_move.on(-30)
 	mm_move.on(-30)
+	sleep(0.5)
+	
 	# play a sound to indicate the lifting action
 	snd.play_file('sounds/Air release.rsf')
+
+	# keep a force on the drive wheel while lifting rear part of the car
+	# to avoid the machine following down from the higher place
+	mm_move.on(-8)
+	lm_move.on(-15)
 
 	log.info('Lifting the rear part')
 	# lift the rear part of the car
@@ -161,7 +163,7 @@ while( steps > 0 ):
 # move forward & stop
 mm_move.on(-90)
 lm_move.on(-100)
-sleep(1.5)
+sleep(0.5)
 mm_move.stop()
 lm_move.stop()
 
